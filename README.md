@@ -1,3 +1,3 @@
-# JavaScript All-In-One For Dummies
+# 나의 코딩 공부
 
-I'm learning JavaScript, React, Vue, Svelte, and Node from JavaScript All-In-One For Dummies by Chris Minnick
+I'm learning JavaScript, Python
