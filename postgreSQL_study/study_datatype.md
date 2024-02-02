@@ -1,5 +1,15 @@
 # Data type
 
--[characters](character)
+- [characters](#character)
+- [numbers](#numbers)
 
-## characters {#character}
+## characters
+
+- char (n)
+
+- varchar (n)
+- text
+
+## numbers
+
+-
