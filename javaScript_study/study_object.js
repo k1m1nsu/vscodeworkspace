@@ -28,5 +28,14 @@ customer[`name`]; // "Laura Wigfall"
 customer.height = 6;
 
 /*
-
+다음과 같이 object의 property에 접근할 수 있다.
 */
+
+// for ... in
+for (let prop in customer) {
+  console.log(`${prop} : ${customer[prop]}`);
+}
+
+// Object 메소드를 이용한 방법.
+let keysArray = Object.keys(customer); // ['name', 'address', 'city', 'state', 'zipcode', 'customerId', 'isInLoyaltyClub', 'sayHello', 'children']
+let valuesArray = Object.values(customer); // ['Laura Wigfall', '3427 Crummit Lane', 'Providence', 'RI', '02905', 4, true, ƒ, {…}]
