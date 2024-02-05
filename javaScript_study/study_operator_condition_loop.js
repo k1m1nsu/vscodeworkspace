@@ -61,3 +61,15 @@ for (let pet of pets) {
 }
 
 // while
+let i = 0;
+while (i < 10) {
+  i++;
+  console.log(i);
+}
+
+let j = 0;
+do {
+  // 조건식과 관계없이 1회 이상 실행함
+  j++;
+  console.log(j); //
+} while (j < 10); // while뒤에 ; 이 들어가는 것 주목

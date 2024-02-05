@@ -41,4 +41,3 @@ my_set = {x*7 for x in range(20)} # {0, 133, 7, 14, 21, 28, 35, 42, 49, 56, 63, 
 
 # 정렬을 하고 싶으면 이렇게 해라
 sorted_set = sorted(my_set)
-
