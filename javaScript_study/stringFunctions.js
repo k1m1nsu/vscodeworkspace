@@ -20,3 +20,5 @@ firstName[0]; // `b`
 firstName[-1]; // undefined
 
 firstName.replace(`b`, `B`); // `Barney`
+
+firstName.startsWith("B"); // true
