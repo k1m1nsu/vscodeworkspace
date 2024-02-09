@@ -118,6 +118,7 @@ let temp = myArray3.join(`_`); // '0_1_2_3_4'
 // map
 const double = (params) => params * 2;
 let temp = myArray3.map(double); // [0, 2, 4, 6, 8]
+
 // 이런식으로 HTML 만들기 좋다
 const ingredients = [
   "eggs",

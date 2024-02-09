@@ -59,6 +59,9 @@ customer[`name`]; // "Laura Wigfall"
 // To add a property
 customer.height = 6;
 
+// delete properties
+delete customer.height;
+
 /*
 다음과 같이 object의 property에 접근할 수 있다.
 */
