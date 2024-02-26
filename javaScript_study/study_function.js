@@ -176,4 +176,109 @@ const myFunction = (...args) => {
 };
 myFunction(1, 2, 3, 4, 5); // 1
 
-// 154페이지 Writing Methods 부터 이어서
+const myCar = {
+    speed: 0,
+
+    // drive: function(speedLimit){
+    //     this.speed = speedLimit;
+    //     console.log(`Driving at ${this.speed}mph`);
+    // }
+
+    // method notation
+    drive(speedLimit){
+        this.speed = speedLimit;
+        console.log(`Driving at ${this.speed}mph`);
+    },
+
+};
+
+
+// 아래와 같이 object 마다 메소드 안만들고 밖에다가 함수를 만들 수 있다.
+// 이렇게 만들었을 시 문제는 object를 drive할 수 없는데 이를 해결하기위한 2가지 방법이 있다.
+// 1. 함수의 파라미터에 오브젝트를 넘겨주는 방법
+// 2. 함수의 context를 설정해 주는 방법
+const myCar2 = {
+    speed: 0,
+}
+const myCar3 = {
+    speed: 0,
+}
+function drive(speedLimit){
+    this.speed = speedLimit;
+    console.log(`Driving at ${this.speed}mph`);
+}
+// 1번 방법
+/**
+ * function drive(vehicle, speedLimit){
+ *      vehicle.speed = speedLimit;
+ *      console.log(`Driving at ${this.speed}mph`);
+ * }
+ * 
+ */
+
+// 2번 방법 call(), apply(), bind()  157페이지
+// someFunction.call(object, someFucntion's parameter1, someFucntion's own parameter2)
+// call(object, [Additional argument 원래 함수가 받는 파라미터들])
+drive.call(myCar2, 65);
+
+// apply()는 call()과 같은 일을 하나 두 번째 파라미터로 array를 받음
+
+// bind() 는 call() 과 같은 일을 하나 함수를 리턴함 클로저느낌
+const driveMyCarOnTheFreeway = drive.bind(myCar2, 65);
+driveMyCarOnTheFreeway();
+
+
+
+// 
+const myCar4 = {
+    speed:0,
+    operate(speedLimit, callback){
+        boundCallback = callback.bind(this);
+        boundCallback(speedLimit)
+        console.log(`myCar4 is driving at ${this.speed}`);
+    },
+};
+
+function drive2(speed){
+    this.speed = speed;
+    console.log(`Start driving at ${this.speed}`);
+}
+myCar4.operate(55, drive2);
+
+//
+const bookstore = {
+    books: ['Ulysses', 'The Great Gatsby'],
+    removeBook(title) {
+      let newList = this.books.filter((book) => book != title);
+      this.books = newList;
+      this.displayBookstore();
+    },
+    displayBookstore() {
+      const renderTarget = document.getElementById('bookstore');
+      const bookList = this.books.map((book) => `<p>${book}</p>`);
+      renderTarget.innerHTML = bookList.join('');
+
+      shoppingCart.displayCart(this.removeBook.bind(this));
+    },
+  };
+
+  const shoppingCart = {
+    itemsInCart: ['The Great Gatsby'],
+    handleClick(removeBook) {
+      removeBook(this.itemsInCart);
+    },
+    displayCart(clickHandler) {
+      const renderTarget = document.getElementById('cart');
+      const itemsInCart = this.itemsInCart.map((item) => `<p>${item}</p>`);
+      const checkoutButton = "<button id='checkout'>Check Out</button>";
+
+      renderTarget.innerHTML = itemsInCart.join('') + checkoutButton;
+      document
+        .getElementById('checkout')
+        .addEventListener('click', () => this.handleClick(clickHandler));
+    },
+  };
+
+  bookstore.displayBookstore();
+
+// 165쪽 부터 이어서 0226 2020
